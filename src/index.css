@@ -5,7 +5,32 @@ body{
   margin: 0;
   font-family: 'Karla', sans-serif;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F7FB;
+  background-image: url("./assets/bottom blob.png"), url("./assets/top blob.png");
+  background-repeat: no-repeat;
+  background-position: bottom left, top right;
 }
 h1, h2, h3, h4, p, figure, blockquote, dl, dd {
   margin: 0;
+}
+
+.landing{
+  text-align: center;
+  color: #293264;
+  background-repeat: no-repeat;
+}
+.landing p{
+  margin-top: 7px;
+}
+.landing button{
+  min-width: 12rem;
+  margin-top: 30px;
+  padding: 1rem 1.8rem;
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  border: none;
+  border-radius: 1rem;
 }
