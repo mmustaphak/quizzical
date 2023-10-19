@@ -1,0 +1,11 @@
+*,*::before,*::after{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  font-family: 'Karla', sans-serif;
+  min-height: 100vh;
+}
+h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+  margin: 0;
+}
