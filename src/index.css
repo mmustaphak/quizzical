@@ -12,6 +12,7 @@ body{
   background-image: url("./assets/bottom blob.png"), url("./assets/top blob.png");
   background-repeat: no-repeat;
   background-position: bottom left, top right;
+  color: #293264;
 }
 h1, h2, h3, h4, p, figure, blockquote, dl, dd {
   margin: 0;
@@ -19,7 +20,6 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
 
 .landing{
   text-align: center;
-  color: #293264;
   background-repeat: no-repeat;
 }
 .landing p{
@@ -36,4 +36,24 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
 }
 .landing button:active{
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+.questions{
+  padding: 1.5rem;
+}
+
+.options{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  align-items: center;
+}
+.options span{
+  border: 1px solid #4D5B9E;
+  padding: 0.25rem 0.96rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.options span + span{
+  margin-left: 0.82rem;
 }
