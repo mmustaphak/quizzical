@@ -1,11 +1,16 @@
+import { useState } from "react"
 import Landing from "./components/Landing.jsx"
 import Questions from "./components/Questions.jsx"
 
 function App() {
+  const [isStarted, setIsStarted] = useState(false)
+
+  function startGame(){
+    setIsStarted(true)
+  }
   return (
     <>
-      {/* {<Landing/>} */}
-      <Questions/>
+      {isStarted ? <Questions/> : <Landing startGame={startGame}/>}
     </>
   )
 }
