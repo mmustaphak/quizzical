@@ -1,4 +1,17 @@
+import { useEffect, useState } from "react"
+
 const Questions = ()=>{
+
+    const [questions,setQuestions] = useState([])
+
+    useEffect(()=>{
+        fetch("https://opentdb.com/api.php?amount=5")
+            .then(data => data.json())
+            .then(questions => setQuestions(questions.results))
+            .catch(erro => console.log(erro))
+    },[])
+
+
     return(
         <div className="questions">
             <h2>How does one say goodbye in spanish ?</h2>

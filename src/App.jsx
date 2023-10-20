@@ -14,11 +14,11 @@ function App() {
     </>
   )
 }
-
 /*
-  Next to do
-
-  make next screen
-
-initialise state to called isStarted. use state to conditionally render landing page and next screen */
+  1.get questions from api
+  2. style options when selected
+  4. Add button to check answers
+  3. add dynamic styling for when answers are checked
+  4. randomly organise the options to render in random order
+*/
 export default App
