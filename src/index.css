@@ -46,6 +46,10 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   align-items: center;
+  margin-top: .75rem;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
 }
 .options span{
   border: 1px solid #4D5B9E;
@@ -56,4 +60,14 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
 
 .options span + span{
   margin-left: 0.82rem;
+}
+.options span:nth-last-child(2){
+  margin-right: 0.82rem;
+}
+.options span:last-child{
+  margin-left: 0;
+}
+.questions hr{
+  margin-top: .9rem;
+  color: #DBDEF0;
 }
