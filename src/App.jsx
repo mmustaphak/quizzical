@@ -1,19 +1,11 @@
 import Landing from "./components/Landing.jsx"
+import Questions from "./components/Questions.jsx"
 
 function App() {
   return (
     <>
       {/* {<Landing/>} */}
-      <div className="questions">
-        <h2>How does one say goodbye in spanish ?</h2>
-        <div className="options">
-          <span>Adiós</span>
-          <span>Hola</span>
-          <span>Au Revoir</span>
-          <span>Salir</span>
-        </div>
-        <hr />
-      </div>
+      <Questions/>
     </>
   )
 }
