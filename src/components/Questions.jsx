@@ -19,21 +19,41 @@ const Questions = (props)=>{
         })
     }
 
+    console.log(isClicked.correct)
 
     return(
         <div key={props.question} className="questions">
             <h2>{props.question}</h2>
             <div className="options">
-                <span id="correct" onClick={(event) => handleToggle(event)}>
+                <span 
+                    id="correct"
+                    style={isClicked.correct ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
+                    onClick={(event) => handleToggle(event)}
+                >
                     {props.correct_answer}
                 </span>
-                <span id="incorrect1" onClick={(event) => handleToggle(event)}>
+
+                <span 
+                    id="incorrect1"
+                    style={isClicked.incorrect1 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
+                    onClick={(event) => handleToggle(event)}
+                >
                     {props.incorrect_answers[0]}
                 </span>
-                <span id="incorrect2" onClick={(event) => handleToggle(event)}>
+
+                <span 
+                    id="incorrect2"
+                    style={isClicked.incorrect2 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
+                    onClick={(event) => handleToggle(event)}
+                >
                     {props.incorrect_answers[1]}
                 </span>
-                <span id="incorrect3" onClick={(event) => handleToggle(event)}>
+
+                <span
+                    id="incorrect3"
+                    style={isClicked.incorrect3 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
+                    onClick={(event) => handleToggle(event)}
+                >
                         {props.incorrect_answers[2]}
                 </span>
             </div>
