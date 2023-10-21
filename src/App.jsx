@@ -8,7 +8,7 @@ function App() {
 
 
   useEffect(()=>{
-    fetch("https://opentdb.com/api.php?amount=5v&type=multiple")
+    fetch("https://opentdb.com/api.php?amount=5&type=multiple")
         .then(data => data.json())
         .then(questions => setQuestions(questions.results))
         .catch(error => console.log(error))
