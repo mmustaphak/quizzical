@@ -23,7 +23,11 @@ function App() {
   }
   return (
     <>
-      {isStarted ? questionsArr: <Landing startGame={startGame}/>}
+      {
+        isStarted ? 
+        <div className="questions_wrapper">{questionsArr}</div>:
+        <Landing startGame={startGame}/>
+      }
     </>
   )
 }

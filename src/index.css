@@ -38,8 +38,12 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
-.questions{
+.questions_wrapper{
   padding: 1.5rem;
+}
+
+.questions + .questions{
+  margin-top: 1.5rem;
 }
 
 .options{
