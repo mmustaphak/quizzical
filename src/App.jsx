@@ -1,16 +1,29 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Landing from "./components/Landing.jsx"
 import Questions from "./components/Questions.jsx"
 
 function App() {
   const [isStarted, setIsStarted] = useState(false)
+  const [questions,setQuestions] = useState([])
+
+
+  useEffect(()=>{
+    fetch("https://opentdb.com/api.php?amount=5v&type=multiple")
+        .then(data => data.json())
+        .then(questions => setQuestions(questions.results))
+        .catch(error => console.log(error))
+},[])
+
+  const questionsArr = questions.map(item => {
+    return <Questions key={item.question} {...item}/>
+  })
 
   function startGame(){
     setIsStarted(true)
   }
   return (
     <>
-      {isStarted ? <Questions/> : <Landing startGame={startGame}/>}
+      {isStarted ? questionsArr: <Landing startGame={startGame}/>}
     </>
   )
 }
