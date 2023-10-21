@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Questions = (props)=>{
+const Questions = ({question,correct_answer,incorrect_answers})=>{
 
 
     const [isClicked, setIsClicked] = useState({
@@ -10,7 +10,21 @@ const Questions = (props)=>{
         incorrect3: false
     })
 
-    
+    const handleShuffle = ()=>{
+        const arr = []
+        const randomNum = Math.floor(Math.random()*3)
+        for(let i=0;i<incorrect_answers.length; i++){
+            if(randomNum === i){
+                arr.push(correct_answer)
+                arr.push(incorrect_answers[i])
+            }else{
+                arr.push(incorrect_answers[i])
+            }
+        }
+        console.log(arr)
+    }
+
+    handleShuffle()
 
     function handleToggle(event){
         const {id} = event.target
@@ -19,18 +33,16 @@ const Questions = (props)=>{
         })
     }
 
-    console.log(isClicked.correct)
-
     return(
-        <div key={props.question} className="questions">
-            <h2>{props.question}</h2>
+        <div key={question} className="questions">
+            <h2>{question}</h2>
             <div className="options">
                 <span 
                     id="correct"
                     style={isClicked.correct ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
                     onClick={(event) => handleToggle(event)}
                 >
-                    {props.correct_answer}
+                    {correct_answer}
                 </span>
 
                 <span 
@@ -38,7 +50,7 @@ const Questions = (props)=>{
                     style={isClicked.incorrect1 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
                     onClick={(event) => handleToggle(event)}
                 >
-                    {props.incorrect_answers[0]}
+                    {incorrect_answers[0]}
                 </span>
 
                 <span 
@@ -46,7 +58,7 @@ const Questions = (props)=>{
                     style={isClicked.incorrect2 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
                     onClick={(event) => handleToggle(event)}
                 >
-                    {props.incorrect_answers[1]}
+                    {incorrect_answers[1]}
                 </span>
 
                 <span
@@ -54,7 +66,7 @@ const Questions = (props)=>{
                     style={isClicked.incorrect3 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
                     onClick={(event) => handleToggle(event)}
                 >
-                        {props.incorrect_answers[2]}
+                        {incorrect_answers[2]}
                 </span>
             </div>
             <hr />
