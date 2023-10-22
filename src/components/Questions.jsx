@@ -11,20 +11,32 @@ const Questions = ({question,correct_answer,incorrect_answers})=>{
     })
 
     const handleShuffle = ()=>{
-        const arr = []
-        const randomNum = Math.floor(Math.random()*3)
-        for(let i=0;i<incorrect_answers.length; i++){
-            if(randomNum === i){
-                arr.push(correct_answer)
-                arr.push(incorrect_answers[i])
-            }else{
-                arr.push(incorrect_answers[i])
-            }
-        }
-        console.log(arr)
+        let arr = [...incorrect_answers]
+        arr = arr.map((choice,index) => {
+            return (
+                <span 
+                    key={choice}
+                    id={`incorrect${index+1}`}
+                    style={isClicked.incorrect1 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
+                    onClick={(event) => handleToggle(event)}
+                >
+                    {choice}
+                </span>
+            )
+        })
+        arr.push(
+                <span 
+                    id="correct"
+                    style={isClicked.correct ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
+                    onClick={(event) => handleToggle(event)}
+                >
+                    {correct_answer}
+                </span>
+        )
+        const shuffle = arr.sort(()=>Math.random()-0.5)
+        console.log(shuffle)
     }
 
-    handleShuffle()
 
     function handleToggle(event){
         const {id} = event.target
