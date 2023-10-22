@@ -29,7 +29,7 @@ const Questions = ({question,correct_answer,incorrect_answers})=>{
     function handleToggle(event){
         const {id} = event.target
         setIsClicked( oldIsClicked => {
-           return {...oldIsClicked, [id]: ! oldIsClicked[id]}
+            return {...!oldIsClicked, [id]: ! oldIsClicked[id]}
         })
     }
 
