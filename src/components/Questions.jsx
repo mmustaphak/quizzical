@@ -22,7 +22,6 @@ const Questions = ({question, correct_answer, incorrect_answers})=>{
         return arr.sort(()=>Math.random() - 0.5)
     }
 
-    console.log(isClicked)
 
     const displayedOptions = options.map((option, index) => {
         return (

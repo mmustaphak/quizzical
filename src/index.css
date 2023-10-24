@@ -38,7 +38,7 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
-.questions_wrapper{
+.wrapper{
   padding: 1.5rem;
 }
 
@@ -80,4 +80,15 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
   border: 1px solid #D6DBF5;
   color: inherit;
   background-color: #D6DBF5;
+}
+
+.submit{
+  background-color: #4D5B9E;
+  color: #F5F7FB;
+  border: none;
+  border-radius: 7.9px;
+  padding: 10px 22px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 1rem;
 }

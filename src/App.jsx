@@ -25,7 +25,13 @@ function App() {
     <>
       {
         isStarted ? 
-        <div className="questions_wrapper">{questionsArr}</div>:
+        (
+            <div className="wrapper">
+              {questionsArr}
+              <button className="submit">Check Answers</button>
+            </div>
+            
+          ):
         <Landing startGame={startGame}/>
       }
     </>
