@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Landing from "./components/Landing.jsx"
 import Questions from "./components/Questions.jsx"
+import SecondScreen from "./components/SecondScreen.jsx"
 
 function App() {
   const [isStarted, setIsStarted] = useState(false)
@@ -14,25 +15,16 @@ function App() {
         .catch(error => console.log(error))
 },[])
 
-  const questionsArr = questions.map(item => {
-    return <Questions key={item.question} {...item}/>
-  })
+  
 
   function startGame(){
     setIsStarted(true)
   }
+
   return (
     <>
       {
-        isStarted ? 
-        (
-            <div className="wrapper">
-              {questionsArr}
-              <button className="submit">Check Answers</button>
-            </div>
-            
-          ):
-        <Landing startGame={startGame}/>
+        isStarted ? <SecondScreen questions={questions}/>:<Landing startGame={startGame}/>
       }
     </>
   )
