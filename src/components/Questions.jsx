@@ -26,13 +26,13 @@ const Questions = ({question, correct_answer, incorrect_answers})=>{
 
     const displayedOptions = options.map((option, index) => {
         return (
-            <spa
+            <span
                 key={option}
                 onClick={()=>handleToggle(`option${index+1}`)}
                 className={isClicked[`option${index+1}`] ? "clicked" : ""}
             >
                 {option}
-            </spa>
+            </span>
         )
     })
 

@@ -75,3 +75,9 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
   margin-top: .9rem;
   color: #DBDEF0;
 }
+
+.options .clicked{
+  border: 1px solid #D6DBF5;
+  color: inherit;
+  background-color: #D6DBF5;
+}
