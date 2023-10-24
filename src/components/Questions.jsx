@@ -1,85 +1,46 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const Questions = ({question,correct_answer,incorrect_answers})=>{
+const Questions = ({question, correct_answer, incorrect_answers})=>{
 
+    const [options,setOptions] = useState([])
+    const [isClicked,setIsClicked] = useState({})
 
-    const [isClicked, setIsClicked] = useState({
-        correct: false,
-        incorrect1: false,
-        incorrect2: false,
-        incorrect3: false
+    useEffect(()=>{
+        if(options.length === 0){
+            setOptions(handleShuffle([correct_answer,...incorrect_answers]))
+        }
+    },[])
+
+    const handleToggle = (option)=>{
+        setIsClicked(oldISClicked => {
+            const flip = {...!isClicked} 
+            return {...flip,[option] : !oldISClicked[option]}
+        })
+    }
+
+    const handleShuffle = (arr)=>{
+        return arr.sort(()=>Math.random() - 0.5)
+    }
+
+    console.log(isClicked)
+
+    const displayedOptions = options.map((option, index) => {
+        return (
+            <spa
+                key={option}
+                onClick={()=>handleToggle(`option${index+1}`)}
+                className={isClicked[`option${index+1}`] ? "clicked" : ""}
+            >
+                {option}
+            </spa>
+        )
     })
 
-    const handleShuffle = ()=>{
-        let arr = [...incorrect_answers]
-        arr = arr.map((choice,index) => {
-            return (
-                <span 
-                    key={choice}
-                    id={`incorrect${index+1}`}
-                    style={isClicked.incorrect1 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
-                    onClick={(event) => handleToggle(event)}
-                >
-                    {choice}
-                </span>
-            )
-        })
-        arr.push(
-                <span 
-                    id="correct"
-                    style={isClicked.correct ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
-                    onClick={(event) => handleToggle(event)}
-                >
-                    {correct_answer}
-                </span>
-        )
-        const shuffle = arr.sort(()=>Math.random()-0.5)
-        console.log(shuffle)
-    }
-
-
-    function handleToggle(event){
-        const {id} = event.target
-        setIsClicked( oldIsClicked => {
-            return {...!oldIsClicked, [id]: ! oldIsClicked[id]}
-        })
-    }
-
     return(
-        <div key={question} className="questions">
+        <div className="questions">
             <h2>{question}</h2>
             <div className="options">
-                <span 
-                    id="correct"
-                    style={isClicked.correct ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
-                    onClick={(event) => handleToggle(event)}
-                >
-                    {correct_answer}
-                </span>
-
-                <span 
-                    id="incorrect1"
-                    style={isClicked.incorrect1 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
-                    onClick={(event) => handleToggle(event)}
-                >
-                    {incorrect_answers[0]}
-                </span>
-
-                <span 
-                    id="incorrect2"
-                    style={isClicked.incorrect2 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
-                    onClick={(event) => handleToggle(event)}
-                >
-                    {incorrect_answers[1]}
-                </span>
-
-                <span
-                    id="incorrect3"
-                    style={isClicked.incorrect3 ? {backgroundColor: "#D6DBF5",border: "none"} : {}}
-                    onClick={(event) => handleToggle(event)}
-                >
-                        {incorrect_answers[2]}
-                </span>
+                {displayedOptions}
             </div>
             <hr />
         </div>
