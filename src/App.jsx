@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import Landing from "./components/Landing.jsx"
-import Questions from "./components/Questions.jsx"
 import SecondScreen from "./components/SecondScreen.jsx"
 
 function App() {
@@ -29,11 +28,5 @@ function App() {
     </>
   )
 }
-/*
-  1.get questions from api
-  2. style options when selected
-  4. Add button to check answers
-  3. add dynamic styling for when answers are checked
-  4. randomly organise the options to render in random order
-*/
+
 export default App
