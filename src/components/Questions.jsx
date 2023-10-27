@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState, } from "react"
 
-const Questions = ({question, correct_answer, incorrect_answers, setSum})=>{
+const Questions = (props)=>{
+
+    const {correct_answer,incorrect_answers,question} = props.item
+    const {setSum} = props
+
 
     const [options,setOptions] = useState([])
     const [isClicked,setIsClicked] = useState({})
     const [isCorrect, setIsCorrect] = useState(false)
+
 
     useEffect(()=>{
         if(options.length === 0){
@@ -12,10 +17,17 @@ const Questions = ({question, correct_answer, incorrect_answers, setSum})=>{
         }
     },[])
 
+    const selected = useRef(false)
     useEffect(()=>{
-        setSum(oldSum => {
-            isCorrect ? oldSum + 1 : oldSum -1
-        })
+        if(isCorrect){
+            if(!selected.current){
+                setSum(oldSum => oldSum + 1)
+                selected.current = !selected.current
+            }
+        }else if(!isCorrect && selected.current){
+            setSum(oldSum => oldSum - 1 )
+            selected.current = !selected.current
+        }
     },[isCorrect])
 
     const checkIsCorrect = (event)=>{

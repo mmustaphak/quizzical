@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Questions from "./Questions.jsx"
 
-const secondScreen = ({questions} = questions)=>{
+const SecondScreen = ({questions})=>{
 
     const [sum,setSum] = useState(0)
 
@@ -11,16 +11,18 @@ const secondScreen = ({questions} = questions)=>{
         return <Questions 
                     key={item.question} 
                     setSum={setSum}
-                    {...item}
+                    item={item}
                 />
     })
 
+    
     return(
         <div className="wrapper">
             {questionsArr}
+            <span>You scored {sum}/5 Answers</span>
             <button className="submit">Check Answers</button>
         </div>
     )
 }
 
-export default secondScreen
+export default SecondScreen
