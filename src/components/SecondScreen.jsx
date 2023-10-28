@@ -4,8 +4,11 @@ import Questions from "./Questions.jsx"
 const SecondScreen = ({questions})=>{
 
     const [sum,setSum] = useState(0)
+    const [isShown,setIsShown] = useState(false)
 
-    console.log(sum)
+    function revealScore(){
+        setIsShown(true)
+    }
 
     const questionsArr = questions.map(item => {
         return <Questions 
@@ -19,8 +22,9 @@ const SecondScreen = ({questions})=>{
     return(
         <div className="wrapper">
             {questionsArr}
-            <span>You scored {sum}/5 Answers</span>
-            <button className="submit">Check Answers</button>
+            {isShown && <span>You scored {sum}/5 Answers</span>}
+            <button className="submit" 
+            onClick={()=>revealScore()}>Check Answers</button>
         </div>
     )
 }
