@@ -43,15 +43,17 @@ const Questions = (props)=>{
     }
 
     const handleToggle = (option)=>{
-        setIsClicked(oldISClicked => {
-            const reset = {
-                option1: false,
-                option2: false, 
-                option3: false,
-                option4: false
-            } 
-            return {...reset,[option] : !oldISClicked[option]}
-        })
+        if(!isShown){
+            setIsClicked(oldISClicked => {
+                const reset = {
+                    option1: false,
+                    option2: false, 
+                    option3: false,
+                    option4: false
+                } 
+                return {...reset,[option] : !oldISClicked[option]}
+            })
+        }
     }
 
     const handleShuffle = (arr)=>{
