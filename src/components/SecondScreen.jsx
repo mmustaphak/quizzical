@@ -14,6 +14,7 @@ const SecondScreen = ({questions})=>{
         return <Questions 
                     key={item.question} 
                     setSum={setSum}
+                    isShown={isShown}
                     item={item}
                 />
     })

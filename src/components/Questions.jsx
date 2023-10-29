@@ -3,11 +3,18 @@ import { useEffect, useRef, useState, } from "react"
 const Questions = (props)=>{
 
     const {correct_answer,incorrect_answers,question} = props.item
-    const {setSum} = props
+    const {setSum,isShown} = props
 
 
     const [options,setOptions] = useState([])
-    const [isClicked,setIsClicked] = useState({})
+    const [isClicked,setIsClicked] = useState(
+        {
+            option1: false,
+            option2: false, 
+            option3: false,
+            option4: false
+        }
+    )
     const [isCorrect, setIsCorrect] = useState(false)
 
 
@@ -37,8 +44,13 @@ const Questions = (props)=>{
 
     const handleToggle = (option)=>{
         setIsClicked(oldISClicked => {
-            const flip = {...!isClicked} 
-            return {...flip,[option] : !oldISClicked[option]}
+            const reset = {
+                option1: false,
+                option2: false, 
+                option3: false,
+                option4: false
+            } 
+            return {...reset,[option] : !oldISClicked[option]}
         })
     }
 
@@ -46,13 +58,28 @@ const Questions = (props)=>{
         return arr.sort(()=>Math.random() - 0.5)
     }
 
+    const handleStyles = (index)=>{
+        let styles = ""
+        if(isClicked[`option${index}`]){
+            styles = "clicked"
+            if(isShown){
+                styles = isCorrect ? "correct" : "incorrect"
+            }
+        }else if(isClicked[`option${index}`] === false && isShown){
+            styles = "unselected"
+        }
+        console.log(styles)
+        return styles
+    }
+
+    console.log(isClicked)
 
     const displayedOptions = options.map((option, index) => {
         return (
             <span
                 key={option}
                 onClick={(event)=>{handleToggle(`option${index+1}`); checkIsCorrect(event)}}
-                className={isClicked[`option${index+1}`] ? "clicked" : ""}
+                className={handleStyles(index+1)}
             >
                 {option}
             </span>

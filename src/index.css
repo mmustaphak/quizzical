@@ -81,7 +81,19 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
   color: inherit;
   background-color: #D6DBF5;
 }
-
+.options .correct{
+  border: #94D7A2;
+  background-color: #94D7A2;
+}
+.options .incorrect{
+  border: #F8BCBC;
+  background-color: #F8BCBC;
+  color: #293264;
+  opacity: 0.5;
+}
+.options .unselected{
+  opacity: 0.5;
+}
 .submit{
   background-color: #4D5B9E;
   color: #F5F7FB;
