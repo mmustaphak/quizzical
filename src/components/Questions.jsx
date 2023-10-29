@@ -39,7 +39,9 @@ const Questions = (props)=>{
 
     const checkIsCorrect = (event)=>{
         const {outerText} = event.target 
-        outerText === correct_answer ? setIsCorrect(oldIsCorrect => !oldIsCorrect) : null
+        if(!isShown){
+            outerText === correct_answer ? setIsCorrect(oldIsCorrect => !oldIsCorrect) : null
+        }
     }
 
     const handleToggle = (option)=>{
