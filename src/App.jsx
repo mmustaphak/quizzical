@@ -11,11 +11,10 @@ function App() {
       .then(data => data.json()).then(result => setQuestions(result.results))
   },[])
 
-  console.log(questions)
 
   return(
     <>
-      {isStarted ? <Questions/> : <Landing startGame={setIsStarted}/>}
+      {isStarted ? <Questions questions={questions}/> : <Landing startGame={setIsStarted}/>}
     </>
   )
 }
