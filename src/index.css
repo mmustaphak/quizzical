@@ -40,6 +40,9 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
 .questions{
   padding: 1rem;
   color: #293264;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .questions > div + div{
   margin-top: .93rem;
@@ -62,4 +65,14 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
 .questions hr{
   color: #DBDEF0;
   margin-top: .93rem;
+}
+.submit{
+  padding: .6875rem 1.3125rem;
+  margin-top: 1.25rem;
+  background-color: #4D5B9E;
+  border: none;
+  color: #F5F7FB;
+  border-radius: 10px;
+  max-width: 9.375rem;
+  align-self: center;
 }

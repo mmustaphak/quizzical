@@ -10,6 +10,7 @@ function App() {
       .then(data => data.json()).then(result => setQuestions(result.results))
   },[])
 
+  console.log(questions)
 
   return(
     <>
@@ -64,6 +65,7 @@ function App() {
           </div>
           <hr />
         </div>
+        <button className="submit">Check answers</button>
     </div>
       {/* {isStarted ? "Test" : <Landing startGame={setIsStarted}/>} */}
     </>
