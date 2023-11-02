@@ -1,10 +1,11 @@
-const Options = () => {
+const Options = ({correct_answer, incorrect_answers}) => {
+    console.log(correct_answer)
     return (
         <>
-            <button>Option1</button>
-            <button>Option2</button>
-            <button>Opitons3</button>
-            <button>Option4</button>
+            <button>{correct_answer}</button>
+            <button>{incorrect_answers[0]}</button>
+            <button>{incorrect_answers[1]}</button>
+            <button>{incorrect_answers[2]}</button>
         </>
     )
 }
