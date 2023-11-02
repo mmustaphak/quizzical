@@ -16,7 +16,6 @@ body{
 h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
   margin: 0;
 }
-
 .landing{
   text-align: center;
   color: #293264;
@@ -75,4 +74,8 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
   border-radius: 10px;
   max-width: 9.375rem;
   align-self: center;
+}
+.options .clicked{
+  background-color: #D6DBF5;
+  border: #D6DBF5;
 }
