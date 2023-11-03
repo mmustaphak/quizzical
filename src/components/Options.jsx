@@ -16,33 +16,23 @@ const Options = ({correct_answer, incorrect_answers}) => {
             return {...reset,[name]: !oldIsClicked[name]}
         })
     }
+
+    const options = [...incorrect_answers,correct_answer].map((option, index) => {
+        return(
+            <button
+                key={option}
+                name={`option${index+1}`}
+                onClick={(e)=>handdleToggle(e)}
+                className={isClicked[`option${index+1}`] ? "clicked" : ""} 
+            >
+                {option}
+            </button>
+        )
+    })
     
     return (
         <>
-            <button
-                name="option1"
-                onClick={(e)=>handdleToggle(e)}
-                className={isClicked.option1 ? "clicked" : ""} 
-            >
-                {correct_answer}</button>
-            <button
-                name="option2"
-                onClick={(e)=>handdleToggle(e)}
-                className={isClicked.option2 ? "clicked" : ""}
-            >
-                {incorrect_answers[0]}</button>
-            <button
-                name="option3"
-                onClick={(e)=>handdleToggle(e)}
-                className={isClicked.option3 ? "clicked" : ""}
-            >
-                {incorrect_answers[1]}</button>
-            <button
-                name="option4"
-                onClick={(e)=>handdleToggle(e)}
-                className={isClicked.option4 ? "clicked" : ""}
-            >
-                {incorrect_answers[2]}</button>
+            {options}
         </>
     )
 }
