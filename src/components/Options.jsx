@@ -17,7 +17,7 @@ const Options = ({correct_answer, incorrect_answers}) => {
     const scramble = (arr)=>{
         return arr.sort(()=>Math.random() - 0.5)
     }
-    const handdleToggle = (e)=>{
+    const handleToggle = (e)=>{
         const {name} = e.target
         setIsClicked(oldIsClicked => {
             const reset = {option1: false, option2: false, option3: false, option4: false}
@@ -30,7 +30,7 @@ const Options = ({correct_answer, incorrect_answers}) => {
             <button
                 key={option}
                 name={`option${index+1}`}
-                onClick={(e)=>handdleToggle(e)}
+                onClick={(e)=>handleToggle(e)}
                 className={isClicked[`option${index+1}`] ? "clicked" : ""} 
             >
                 {option}
