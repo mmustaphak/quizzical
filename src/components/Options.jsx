@@ -1,7 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Options = ({correct_answer, incorrect_answers}) => {
 
+    const [shuffledOptions, setShuffledOptions] = useState([])
     const [isClicked, setIsClicked] = useState({
         option1: false,
         options: false,
@@ -9,6 +10,13 @@ const Options = ({correct_answer, incorrect_answers}) => {
         option4: false
     })
 
+    useEffect(()=>{
+        setShuffledOptions(scramble([...incorrect_answers,correct_answer]))
+    },[])
+
+    const scramble = (arr)=>{
+        return arr.sort(()=>Math.random() - 0.5)
+    }
     const handdleToggle = (e)=>{
         const {name} = e.target
         setIsClicked(oldIsClicked => {
@@ -17,7 +25,7 @@ const Options = ({correct_answer, incorrect_answers}) => {
         })
     }
 
-    const options = [...incorrect_answers,correct_answer].map((option, index) => {
+    const options = shuffledOptions.map((option, index) => {
         return(
             <button
                 key={option}
