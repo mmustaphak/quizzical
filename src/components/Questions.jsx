@@ -16,9 +16,12 @@ const Questions = ({questions})=>{
         )
     })
     return (
-        <div className="questions">
-            {renderedQuestions}
-        </div>
+        <>
+            <div className="questions">
+                {renderedQuestions}
+            </div>
+            <button className="submit">Check answers</button>
+        </>
     );
 }
 export default Questions
