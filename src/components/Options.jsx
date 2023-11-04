@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
-const Options = ({correct_answer, incorrect_answers}) => {
+const Options = ({correct_answer, incorrect_answers,setSum}) => {
 
     const [shuffledOptions, setShuffledOptions] = useState([])
     const [isClicked, setIsClicked] = useState({
@@ -17,6 +17,20 @@ const Options = ({correct_answer, incorrect_answers}) => {
     const scramble = (arr)=>{
         return arr.sort(()=>Math.random() - 0.5)
     }
+
+    const selected = useRef(false)
+    const handleTally = (e)=>{
+        const {innerText,name} = e.target
+        if(innerText === correct_answer){
+            if(selected.current){
+                setSum(oldSum => oldSum - 1)
+            }else{
+                setSum(oldSum => oldSum + 1)
+            }
+            selected.current = !selected.current
+        }
+    }
+
     const handleToggle = (e)=>{
         const {name} = e.target
         setIsClicked(oldIsClicked => {
@@ -25,12 +39,17 @@ const Options = ({correct_answer, incorrect_answers}) => {
         })
     }
 
+    const handleClick = (e)=>{
+        handleToggle(e)
+        handleTally(e)
+    }
+
     const options = shuffledOptions.map((option, index) => {
         return(
             <button
                 key={option}
                 name={`option${index+1}`}
-                onClick={(e)=>handleToggle(e)}
+                onClick={(e)=> handleClick(e)}
                 className={isClicked[`option${index+1}`] ? "clicked" : ""} 
             >
                 {option}

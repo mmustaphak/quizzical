@@ -1,6 +1,12 @@
+import { useState } from "react";
 import Options from "./Options";
 
 const Questions = ({questions})=>{
+
+    const [sum,setSum] = useState(0)
+
+    console.log(sum)
+
     const renderedQuestions = questions.map(question => {
         return (
             <div key={question.question}>
@@ -9,6 +15,7 @@ const Questions = ({questions})=>{
                 <Options
                     correct_answer={question.correct_answer}
                     incorrect_answers={question.incorrect_answers}
+                    setSum={setSum}
                 />
             </div>
             <hr />
