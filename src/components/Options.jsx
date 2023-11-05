@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react"
 const Options = ({correct_answer, incorrect_answers,setSum,isShown}) => {
 
     const [shuffledOptions, setShuffledOptions] = useState([])
+    const [isCorrect,setIsCorrect] = useState(false)
     const [isClicked, setIsClicked] = useState({
         option1: false,
         options: false,
@@ -18,19 +19,15 @@ const Options = ({correct_answer, incorrect_answers,setSum,isShown}) => {
         return arr.sort(()=>Math.random() - 0.5)
     }
 
-    const selected = useRef(false)
     const handleTally = (e)=>{
-        const {innerText,name} = e.target
+        const {innerText} = e.target
+        
         if(innerText === correct_answer){
-            if(selected.current){
-                setSum(oldSum => oldSum - 1)
-            }else{
-                setSum(oldSum => oldSum + 1)
-            }
-            selected.current = !selected.current
-        }else if(selected.current && innerText != correct_answer){
+            setSum(oldSum => isCorrect ? oldSum-1 : oldSum+1 )
+            setIsCorrect(oldIsCorrect => !oldIsCorrect)
+        }else if(isCorrect && innerText != correct_answer){
             setSum(oldSum => oldSum - 1)
-            selected.current = !selected.current
+            setIsCorrect(oldIsCorrect => !oldIsCorrect)
         }
     }
 
