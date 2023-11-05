@@ -82,6 +82,7 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 }
 .score{
   margin-bottom: .7rem;

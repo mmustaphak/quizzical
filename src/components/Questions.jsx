@@ -17,6 +17,7 @@ const Questions = ({questions})=>{
                     correct_answer={question.correct_answer}
                     incorrect_answers={question.incorrect_answers}
                     setSum={setSum}
+                    isShown={!isShown}
                 />
             </div>
             <hr />
