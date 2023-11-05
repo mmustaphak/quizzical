@@ -4,6 +4,7 @@ import Options from "./Options";
 const Questions = ({questions})=>{
 
     const [sum,setSum] = useState(0)
+    const [isShown,setIsShown] = useState(false)
 
     console.log(sum)
 
@@ -22,14 +23,21 @@ const Questions = ({questions})=>{
         </div>
         )
     })
+
+    const showScore = ()=>{
+        setIsShown(true)
+    }
+
     return (
         <>
             <div className="questions">
                 {renderedQuestions}
             </div>
             <div className="bottom">
-                <strong className="score">You scored {sum}/3 answers</strong>
-                <button className="submit">Check answers</button>
+                {isShown && <strong className="score">You scored {sum}/5 answers</strong>}
+                <button className="submit" 
+                    onClick={showScore}
+                >{isShown ? "Play Again" : "Check answers"}</button>
             </div>
         </>
     );
