@@ -28,6 +28,9 @@ const Options = ({correct_answer, incorrect_answers,setSum}) => {
                 setSum(oldSum => oldSum + 1)
             }
             selected.current = !selected.current
+        }else if(selected.current && innerText != correct_answer){
+            setSum(oldSum => oldSum - 1)
+            selected.current = !selected.current
         }
     }
 
