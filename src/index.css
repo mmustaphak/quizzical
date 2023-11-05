@@ -67,17 +67,22 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
 }
 .submit{
   padding: .6875rem 1.3125rem;
-  margin-top: 1.25rem;
   background-color: #4D5B9E;
   border: none;
   color: #F5F7FB;
   border-radius: 10px;
-  display: block;
-  margin: 0 auto;
   width: fit-content;
   align-self: center;
 }
 .options .clicked{
   background-color: #D6DBF5;
   border: #D6DBF5 1px solid;
+}
+.bottom{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.score{
+  margin-bottom: .7rem;
 }

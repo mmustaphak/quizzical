@@ -27,7 +27,10 @@ const Questions = ({questions})=>{
             <div className="questions">
                 {renderedQuestions}
             </div>
-            <button className="submit">Check answers</button>
+            <div className="bottom">
+                <strong className="score">You scored {sum}/3 answers</strong>
+                <button className="submit">Check answers</button>
+            </div>
         </>
     );
 }
