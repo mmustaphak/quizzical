@@ -66,7 +66,7 @@ const Options = ({correct_answer, incorrect_answers,setSum,isShown}) => {
                 onClick={(e)=> handleClick(e)}
                 className={className} 
             >
-                {option}
+                {option.replaceAll("&#039;s","").replaceAll("&oacute;","").replaceAll("&amp;","")}
             </button>
         )
     })
