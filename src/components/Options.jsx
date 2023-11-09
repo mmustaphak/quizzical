@@ -40,19 +40,31 @@ const Options = ({correct_answer, incorrect_answers,setSum,isShown}) => {
     }
 
     const handleClick = (e)=>{
-        if(isShown){
+        if(!isShown){
             handleToggle(e)
             handleTally(e)
         }
     }
 
     const options = shuffledOptions.map((option, index) => {
+
+        let className = isClicked[`option${index+1}`] ? "clicked" : ""
+        if(isShown){
+            if(option === correct_answer){
+                className = "correct"
+            }else if(isClicked[`option${index+1}`] && !isCorrect){
+                className = "incorrect"
+            }else{
+                className = "notClicked"
+            }
+        }
+        
         return(
             <button
                 key={option}
                 name={`option${index+1}`}
                 onClick={(e)=> handleClick(e)}
-                className={isClicked[`option${index+1}`] ? "clicked" : ""} 
+                className={className} 
             >
                 {option}
             </button>

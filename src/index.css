@@ -78,6 +78,18 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
   background-color: #D6DBF5;
   border: #D6DBF5 1px solid;
 }
+.options .correct{
+  background-color: #94D7A2;
+  border: 1px solid #94D7A2;
+}
+.options .incorrect{
+  background-color: #F8BCBC;
+  border: 1px solid #F8BCBC;
+  opacity: 0.5;
+}
+.options .notClicked{
+  opacity: 0.5;
+}
 .bottom{
   display: flex;
   flex-direction: column;
