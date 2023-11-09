@@ -6,7 +6,6 @@ const Questions = ({questions})=>{
     const [sum,setSum] = useState(0)
     const [isShown,setIsShown] = useState(false)
 
-    console.log(sum)
 
     const renderedQuestions = questions.map(question => {
         return (
