@@ -12,14 +12,13 @@ const Questions = ({questions})=>{
         return (
             <div key={question.question}>
             <h2>{question.question}</h2>
-            <div className="options">
                 <Options
                     correct_answer={question.correct_answer}
                     incorrect_answers={question.incorrect_answers}
                     setSum={setSum}
                     isShown={isShown}
                 />
-            </div>
+            
             <hr />
         </div>
         )

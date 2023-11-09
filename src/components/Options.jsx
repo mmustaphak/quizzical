@@ -73,7 +73,9 @@ const Options = ({correct_answer, incorrect_answers,setSum,isShown}) => {
     
     return (
         <>
-            {options}
+            <div className="options">
+                {options}
+            </div>
         </>
     )
 }
