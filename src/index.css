@@ -14,10 +14,9 @@ body{
   background-position: bottom left, top right;
   color: #293264;
 }
-h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
   margin: 0;
 }
-
 .landing{
   text-align: center;
   background-repeat: no-repeat;
@@ -37,70 +36,67 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd {
 .landing button:active{
   box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
-
-.wrapper{
-  padding: 1.5rem;
+.questions{
+  padding: 1rem;
+  color: #293264;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
-.questions + .questions{
-  margin-top: 1.5rem;
+.questions > div + div{
+  margin-top: .93rem;
 }
-
-.options{
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  align-items: center;
+.questions .options{
   margin-top: .75rem;
+}
+.options{
   display: flex;
   flex-wrap: wrap;
-  row-gap: 0.5rem;
 }
-.options span{
+.options button{
+  color: inherit;
+  background-color: transparent;
   border: 1px solid #4D5B9E;
-  padding: 0.25rem 0.96rem;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.options span + span{
-  margin-left: 0.82rem;
-}
-.options span:nth-last-child(2){
-  margin-right: 0.82rem;
-}
-.options span:last-child{
-  margin-left: 0;
+  border-radius: 7px;
+  margin-right: .75rem;
+  margin-bottom: .5rem;
+  padding: .25rem .93rem;
 }
 .questions hr{
-  margin-top: .9rem;
   color: #DBDEF0;
-}
-
-.options .clicked{
-  border: 1px solid #D6DBF5;
-  color: inherit;
-  background-color: #D6DBF5;
-}
-.options .correct{
-  border: #94D7A2;
-  background-color: #94D7A2;
-}
-.options .incorrect{
-  border: #F8BCBC;
-  background-color: #F8BCBC;
-  color: #293264;
-  opacity: 0.5;
-}
-.options .unselected{
-  opacity: 0.5;
+  margin-top: .93rem;
 }
 .submit{
+  padding: .6875rem 1.3125rem;
   background-color: #4D5B9E;
-  color: #F5F7FB;
   border: none;
-  border-radius: 7.9px;
-  padding: 10px 22px;
-  display: block;
-  margin: 0 auto;
-  margin-top: 1rem;
+  color: #F5F7FB;
+  border-radius: 10px;
+  width: fit-content;
+  align-self: center;
+}
+.options .clicked{
+  background-color: #D6DBF5;
+  border: #D6DBF5 1px solid;
+}
+.options .correct{
+  background-color: #94D7A2;
+  border: 1px solid #94D7A2;
+}
+.options .incorrect{
+  background-color: #F8BCBC;
+  border: 1px solid #F8BCBC;
+  opacity: 0.5;
+}
+.options .notClicked{
+  opacity: 0.5;
+}
+.bottom{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.score{
+  margin-bottom: .7rem;
 }

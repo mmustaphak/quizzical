@@ -1,30 +1,21 @@
-import { useState, useEffect } from "react"
 import Landing from "./components/Landing.jsx"
-import SecondScreen from "./components/SecondScreen.jsx"
-
+import Questions from "./components/Questions.jsx"
+import { useState, useEffect } from "react"
 function App() {
-  const [isStarted, setIsStarted] = useState(false)
-  const [questions,setQuestions] = useState([])
-
+  
+  const [isStarted,setIsStarted] = useState(false)
+  const [questions, setQuestions] = useState([])
 
   useEffect(()=>{
-    fetch("https://opentdb.com/api.php?amount=5&type=multiple")
-        .then(data => data.json())
-        .then(questions => setQuestions(questions.results))
-        .catch(error => console.log(error))
-},[])
+    fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple")
+      .then(data => data.json()).then(result => setQuestions(result.results))
+      .catch(error => console.log(error))
+  },[])
 
-  
 
-  function startGame(){
-    setIsStarted(true)
-  }
-
-  return (
+  return(
     <>
-      {
-        isStarted ? <SecondScreen questions={questions}/>:<Landing startGame={startGame}/>
-      }
+      {isStarted ? <Questions questions={questions}/> : <Landing startGame={setIsStarted}/>}
     </>
   )
 }
