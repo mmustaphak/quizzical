@@ -32,15 +32,21 @@ const Questions = ({questions,setIsStared})=>{
 
     return (
         <>
-            <div className="questions">
-                {renderedQuestions}
-            </div>
-            <div className="bottom">
-                {isShown && <strong className="score">You scored {sum}/5 answers</strong>}
-                <button className="submit" 
-                    onClick={()=> isShown ? playAgain() : showScore()}
-                >{isShown ? "Play Again" : "Check answers"}</button>
-            </div>
+            {
+                questions.length === 0 ? <h1>Loading...</h1> :
+                <>
+                    <div className="questions">
+                        {renderedQuestions}
+                    </div>
+                    
+                    <div className="bottom">
+                        {isShown && <strong className="score">You scored {sum}/5 answers</strong>}
+                        <button className="submit" 
+                            onClick={()=> isShown ? playAgain() : showScore()}
+                        >{isShown ? "Play Again" : "Check answers"}</button>
+                    </div>
+                </>
+            }
         </>
     );
 }
