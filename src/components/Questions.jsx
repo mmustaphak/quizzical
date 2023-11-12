@@ -10,14 +10,13 @@ const Questions = ({questions})=>{
     const renderedQuestions = questions.map(question => {
         return (
             <div key={question.question}>
-            <h2>{question.question.replaceAll("quot;", '').replaceAll("#039;","").replaceAll("&",'"')}</h2>
-                <Options
-                    correct_answer={question.correct_answer}
-                    incorrect_answers={question.incorrect_answers}
-                    setSum={setSum}
-                    isShown={isShown}
-                />
-            
+                <h2>{question.question.replaceAll("quot;", '').replaceAll("#039;","").replaceAll("&",'"')}</h2>
+                    <Options
+                        correct_answer={question.correct_answer}
+                        incorrect_answers={question.incorrect_answers}
+                        setSum={setSum}
+                        isShown={isShown}
+                    />
             <hr />
         </div>
         )

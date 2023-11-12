@@ -42,6 +42,7 @@ h1, h2, h3, h4, p, figure, blockquote, dl, dd, hr {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 750px;
 }
 .questions > div + div{
   margin-top: .93rem;
