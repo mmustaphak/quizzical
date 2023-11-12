@@ -7,15 +7,19 @@ function App() {
   const [questions, setQuestions] = useState([])
 
   useEffect(()=>{
-    fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple")
+    if(isStarted){
+      fetch("https://opentdb.com/api.php?amount=5&category=9&type=multiple")
       .then(data => data.json()).then(result => setQuestions(result.results))
       .catch(error => console.log(error))
-  },[])
+    }
+  },[isStarted])
 
 
   return(
     <>
-      {isStarted ? <Questions questions={questions}/> : <Landing startGame={setIsStarted}/>}
+      {
+        isStarted ? <Questions questions={questions} setIsStared={setIsStarted}/> : <Landing startGame={setIsStarted}/>
+      }
     </>
   )
 }
