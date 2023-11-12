@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Options from "./Options";
 
-const Questions = ({questions})=>{
+const Questions = ({questions,setIsStared})=>{
 
     const [sum,setSum] = useState(0)
     const [isShown,setIsShown] = useState(false)
@@ -26,6 +26,10 @@ const Questions = ({questions})=>{
         setIsShown(true)
     }
 
+    const playAgain = ()=>{
+        setIsStared(false)
+    }
+
     return (
         <>
             <div className="questions">
@@ -34,7 +38,7 @@ const Questions = ({questions})=>{
             <div className="bottom">
                 {isShown && <strong className="score">You scored {sum}/5 answers</strong>}
                 <button className="submit" 
-                    onClick={showScore}
+                    onClick={()=> isShown ? playAgain() : showScore()}
                 >{isShown ? "Play Again" : "Check answers"}</button>
             </div>
         </>
