@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Options from "./Options";
+import Confetti from "react-confetti";
 
 const Questions = ({questions,setIsStared})=>{
 
@@ -35,6 +36,7 @@ const Questions = ({questions,setIsStared})=>{
             {
                 questions.length === 0 ? <h1>Loading...</h1> :
                 <>
+                    {sum===5 && isShown && <Confetti/>}
                     <div className="questions">
                         {renderedQuestions}
                     </div>
